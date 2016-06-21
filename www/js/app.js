@@ -21,7 +21,13 @@ angular.module('zatiqctrl', ['ionic', 'zatiqctrl.controllers', 'zatiqctrl.servic
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html'
+  })
+  //Sample abstract state.
+  .state('tab12', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -29,7 +35,7 @@ angular.module('zatiqctrl', ['ionic', 'zatiqctrl.controllers', 'zatiqctrl.servic
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
+  .state('tab12.dash', {
     url: '/dash',
     views: {
       'tab-dash': {
