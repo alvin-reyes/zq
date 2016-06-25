@@ -15,17 +15,15 @@ angular.module('zatiqctrl.controllers', [])
 })
 
 .controller('TopFoodCtrl', function($scope,food) {
-    console.log("top foods");
     $scope.foods = food.getFoods();
-    console.log(foods);
 })
 
 .controller('TopNightLfCtrl', function($scope,nightlife) {
     $scope.nightlifes = nightlife.getNLs();
 })
 
-.controller('TopPlacesCtrl', function($scope) {
-    console.log("top places");
+.controller('TopPlacesCtrl', function($scope,places) {
+    $scope.places = places.getPlaces();
 })
 
 .controller('TopMoreCtrl', function($scope) {
