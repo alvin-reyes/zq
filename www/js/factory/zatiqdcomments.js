@@ -1,7 +1,6 @@
 angular.module('zatiqctrl.datafactory', [])
 
 .factory('comments', function() {
-    
     var comments = [
         {item:[{id:0,text:'',likes:[],meta:[]}]},
         {item:[{id:0,text:'',likes:[],meta:[]}]},

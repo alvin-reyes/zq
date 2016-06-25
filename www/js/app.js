@@ -18,58 +18,78 @@ angular.module('zatiqctrl', ['ionic', 'zatiqctrl.controllers', 'zatiqctrl.servic
   $stateProvider
 
   // setup an abstract state for the tabs directive
-  .state('tab', {
-    url: '/tab',
+  .state('zqt', {
+    url: '/zqt',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/masterlayout.html'
   })
   
-  //Sample abstract state.
-  .state('tab12', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
+  .state('zqt.dashboard', {
+    url: '/dashboard',
+    templateUrl: 'templates/dashboard/zqt-dashboard.html',
+    controller: 'DashboardCtrl'
   })
 
-  .state('tab12.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
-  .state('tab.chats', {
-      url: '/chats',
+  .state('zqt.top-food', {
+      url: '/top-food/',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'top-food': {
+          templateUrl: 'templates/top-items/food.html',
+          controller: 'TopFoodCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+  
+  .state('zqt.top-nightlf', {
+      url: '/top-nightlf/',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'top-nightlf': {
+          templateUrl: 'templates/top-items/nightlf.html',
+          controller: 'TopNightLfCtrl'
         }
       }
     })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+  
+   .state('zqt.top-places', {
+      url: '/top-places/',
+      views: {
+        'top-places': {
+          templateUrl: 'templates/top-items/places.html',
+          controller: 'TopPlacesCtrl'
+        }
       }
-    }
-  });
+    })
+  
+    .state('zqt.top-more', {
+      url: '/top-more/',
+      views: {
+        'top-more': {
+          templateUrl: 'templates/top-items/more.html',
+          controller: 'TopMoreCtrl'
+        }
+      }
+    })
+  
+  //    Bottom
+  .state('zqt.profile', {
+     url: '/profile/',
+      views: {
+        'top-more': {
+          templateUrl: 'templates/profile/index.html',
+          controller: 'TopMoreCtrl'
+        }
+      } 
+  })
+  .state('zqt.notification', {
+     url: '/notifications/',
+      views: {
+        'top-more': {
+          templateUrl: 'templates/notification/index.html',
+          controller: 'TopMoreCtrl'
+        }
+      } 
+  })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/zqt/dashboard');
 });

@@ -1,6 +1,6 @@
 angular.module('zatiqctrl.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashboardCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
 
@@ -14,6 +14,21 @@ angular.module('zatiqctrl.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('TopFoodCtrl', function($scope) {
+    console.log("top food");
+})
+
+.controller('TopNightLfCtrl', function($scope) {
+    console.log("top night life");
+})
+
+.controller('TopPlacesCtrl', function($scope) {
+    console.log("top places");
+})
+
+.controller('TopMoreCtrl', function($scope) {
+    console.log("top more");
+})
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
