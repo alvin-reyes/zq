@@ -1,7 +1,6 @@
 angular.module('zatiqctrl.datafactory', [])
 
 .factory('food', function() {
-    
     var food = [
         {id:0,type:'nightlife',name:'Food1',desc:'This is a Food',
          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1920px-Good_Food_Display_-_NCI_Visuals_Online.jpg',meta:[]},
@@ -34,7 +33,6 @@ angular.module('zatiqctrl.datafactory', [])
 })
 
 .factory('places', function() {
-    
     var places = [
         {id:0,type:'nightlife',name:'Places 1',desc:'This is a Place',
          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1920px-Good_Food_Display_-_NCI_Visuals_Online.jpg',meta:[]},
@@ -48,4 +46,33 @@ angular.module('zatiqctrl.datafactory', [])
             return places;
         },
     };
-});
+})
+
+.factory('ratingsreviews', function() {
+    var ratingsreviews = new Array();
+    return {
+        getRatings: function() {
+            return ratingsreviews;
+        },
+        addRatings: function(user,item,rating) {
+            ratingsreviews.unshift({
+                id:0,user:user,item:item,rate:rating.rate,review:rating.review
+            });
+        }
+    };
+})
+
+
+.factory('users', function() {
+    var users = new Array();
+    return {
+        getRatings: function() {
+            return ratingsreviews;
+        },
+        addRatings: function(user,item,rating) {
+            ratingsreviews.unshift({
+                id:0,user:user,item:item,rate:rating.rate,review:rating.review
+            });
+        }
+    };
+})
