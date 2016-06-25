@@ -1,4 +1,4 @@
-angular.module('zatiqctrl', ['ionic', 'zatiqctrl.controllers', 'zatiqctrl.services'])
+angular.module('zatiqctrl', ['ionic', 'zatiqctrl.controllers', 'zatiqctrl.services','zatiqctrl.datafactory'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -60,7 +60,7 @@ angular.module('zatiqctrl', ['ionic', 'zatiqctrl.controllers', 'zatiqctrl.servic
         templateUrl: 'templates/profile/index.html',
         controller: 'TopMoreCtrl'
     })
-    .state('zqt.notification', {
+    .state('zqt.notifications', {
         url: '/notifications/',
         templateUrl: 'templates/notification/index.html',
         controller: 'TopMoreCtrl'

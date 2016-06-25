@@ -14,12 +14,14 @@ angular.module('zatiqctrl.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('TopFoodCtrl', function($scope) {
-    console.log("top food");
+.controller('TopFoodCtrl', function($scope,food) {
+    console.log("top foods");
+    $scope.foods = food.getFoods();
+    console.log(foods);
 })
 
-.controller('TopNightLfCtrl', function($scope) {
-    console.log("top night life");
+.controller('TopNightLfCtrl', function($scope,nightlife) {
+    $scope.nightlifes = nightlife.getNLs();
 })
 
 .controller('TopPlacesCtrl', function($scope) {

@@ -1,8 +1,8 @@
 angular.module('zatiqctrl.datafactory', [])
 
-.factory('business', function() {
+.factory('places', function() {
     
-    var wallitems = [
+    var food = [
         {item:[{id:0,type:'review',comments:[],likes:[],meta:[]}]},
         {item:[{id:1,type:'review',comments:[],likes:[],meta:[]}]},
         {item:[{id:2,type:'review',comments:[],likes:[],meta:[]}]},
