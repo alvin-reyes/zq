@@ -1,3 +1,3 @@
-angular.module('zatiqctrl.controllers', [])
+angular.module('zatiqctrl.controllers')
 
 .controller('NotificationCtrl', function($scope) {})

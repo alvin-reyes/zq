@@ -1,4 +1,17 @@
 angular.module('zatiqctrl.datafactory', [])
+.factory('gconfig',function() {
+    
+    var apiKey = 'AIzaSyCfp6B83teeIUqhXJ_cgl4U7hOVIqIAHtI';
+    var urlPlaces = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
+    
+    //https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&name=cruise&key=
+    
+    return {
+        getGooglePlacesAPI : function() {
+            return apiKey;
+        }
+    }
+})
 
 .factory('food', function() {
     var food = [
@@ -14,7 +27,6 @@ angular.module('zatiqctrl.datafactory', [])
         },
     };
 })
-
 .factory('nightlife', function() {
     
     var nl = [
@@ -31,7 +43,6 @@ angular.module('zatiqctrl.datafactory', [])
         },
     };
 })
-
 .factory('places', function() {
     var places = [
         {id:0,type:'nightlife',name:'Places 1',desc:'This is a Place',
@@ -47,7 +58,6 @@ angular.module('zatiqctrl.datafactory', [])
         },
     };
 })
-
 .factory('ratingsreviews', function() {
     var ratingsreviews = new Array();
     return {
@@ -61,8 +71,6 @@ angular.module('zatiqctrl.datafactory', [])
         }
     };
 })
-
-
 .factory('users', function() {
     var users = new Array();
     return {
