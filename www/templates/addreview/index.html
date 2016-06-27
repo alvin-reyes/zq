@@ -9,8 +9,8 @@
       </div>
       
     <ion-list>
-    <ion-item ng-repeat="item in nearbyB" item="item" href="#{{item.id}}">
-        <button on-tap="viewbusiness(item)" class="button">Item {{item.id}}</button>
+    <ion-item ng-repeat="item in nearbyB" item="item" on-tap="viewbusiness(item)">
+        Item {{item.id}}
     </ion-item>
         <ion-infinite-scroll distance="2"
                      on-infinite="nearByBusinesses()"

@@ -1,6 +1,6 @@
 angular.module('zatiqctrl.controllers')
 
-.controller('AddReviewCtrl', function($scope,$ionicLoading,$ionicPopup) {
+.controller('AddReviewCtrl', function($scope,$ionicLoading,$ionicModal) {
     
     var sampleData = [
       {
@@ -78,7 +78,12 @@ angular.module('zatiqctrl.controllers')
     $scope.suggestedBusinesses = function() {
     }
     
+    //  modal //
+    $scope.postreviewmodal;
+    $scope.selectedPlace;
+    $scope.rev;
     $scope.viewbusiness = function(place) {
+        $scope.selectedPlace = place;
           $ionicModal.fromTemplateUrl(
             'templates/addreview/modal/postreview.html', {
                 scope: $scope,
@@ -87,9 +92,17 @@ angular.module('zatiqctrl.controllers')
             $scope.postreviewmodal = modal;
             $scope.postreviewmodal.show();
           });
+        $scope.selectedPlace = place;
     }
     
-    $scope.postreview = function(place) {
+    $scope.postreview = function() {
+        console.log($scope.selectedPlace);
+        console.log($scope.rev);
+    }
+    
+    //  Reviews of the place
+    $scope.businessreviews = function() {
+        console.log($scope.selectedPlace);
         
     }
     

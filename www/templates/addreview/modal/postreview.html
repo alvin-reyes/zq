@@ -1,23 +1,14 @@
 <ion-modal-view>
+    
+    
     <ion-header-bar class="bar bar-header bar-positive">
-      <h1 class="title">New Contact</h1>
-      <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        <button class="button ion-close" on-tap="postreviewmodal.hide()"></button>
+      <h1 class="title">Post Review</h1>
+      <button class="button button-clear button-primary pull left" ng-click="postreview()">Post</button>
     </ion-header-bar>
     <ion-content class="padding">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">First Name</span>
-          <input ng-model="newUser.firstName" type="text">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Last Name</span>
-          <input ng-model="newUser.lastName" type="text">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input ng-model="newUser.email" type="text">
-        </label>
-        <button class="button button-full button-positive" ng-click="createContact(newUser)">Create</button>
-      </div>
+        <ion-item>
+          <ion-textarea></ion-textarea>
+        </ion-item>
     </ion-content>
   </ion-modal-view>
