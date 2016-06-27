@@ -59,6 +59,8 @@ angular.module('zatiqctrl.datafactory', [])
     };
 })
 .factory('ratingsreviewsfactory', function() {
+    
+    //  {id:0,meta:'',review:'',rate}
     var ratingsreviews = new Array();
     return {
         getRatings: function() {

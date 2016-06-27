@@ -1,16 +1,21 @@
 <ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome">
-  <ion-content>
-    
-      
-      <div class="list">
+    <ion-content>
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="Search Business" on-blur="">
+            </label>
+        </div>
 
-        <a class="item item-thumbnail-left" href="#" collection-repeat="nl in nightlifes">
-          <img src="{{nl.img}}">
-          <h2>{{nl.name}}</h2>
-          <p>{{nl.desc}}</p>
-        </a>
+        <div class="list">
 
-    </div>
-      
-  </ion-content>
+            <a class="item item-thumbnail-left" href="#" collection-repeat="nl in nightlifes">
+                <img src="{{nl.img}}">
+                <h2>{{nl.name}}</h2>
+                <p>{{nl.desc}}</p>
+            </a>
+
+        </div>
+
+    </ion-content>
 </ion-view>
