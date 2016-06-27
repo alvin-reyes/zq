@@ -1,7 +1,6 @@
-'use strict';
 angular.module('zatiqctrl.controllers')
 
-.controller('CheckinCtrl', function($scope) {
+.controller('AddPhotoVideoCtrl', function($scope) {
     $scope.init = function(){
          $ionicLoading.show({
               template: 'Loading...'
@@ -9,4 +8,6 @@ angular.module('zatiqctrl.controllers')
            console.log("The loading indicator is now displayed");
         });
     }
+    
+    
 });
