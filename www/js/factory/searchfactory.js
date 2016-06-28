@@ -34,7 +34,6 @@ angular.module('zatiqctrl.datafactory')
                     var currentLoc;
                     var map;
                     
-                    
                     var currentLoc = navigator.geolocation.getCurrentPosition(function (position) {
                         
                         lat = position.coords.latitude;
