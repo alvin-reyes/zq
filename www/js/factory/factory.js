@@ -9,11 +9,13 @@ angular.module('zatiqctrl.datafactory', [])
     return {
         getGooglePlacesAPI : function() {
             return apiKey;
+        },
+        getGooglePlacesUrl : function() {
+            return urlPlaces;
         }
     }
 })
-
-.factory('foodfactory', function() {
+.factory('foodfactory', function(gconfigfactory,$http,$ionicLoading) {
     var food = [
         {id:0,type:'nightlife',name:'Food1',desc:'This is a Food',
          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1920px-Good_Food_Display_-_NCI_Visuals_Online.jpg',meta:[]},
@@ -25,9 +27,37 @@ angular.module('zatiqctrl.datafactory', [])
         getFoods: function() {
             return food;
         },
+        getNearbyFoods: function() {
+            var lat = 0;
+            var long = 0;
+            var result = null;
+            navigator.geolocation.getCurrentPosition(function (position) {
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+            
+                $ionicLoading.show({
+                    template: 'Loading...'
+                }).then(function () {
+                    console.log("The loading indicator is now displayed");
+                });
+
+                console.log(gconfigfactory.getGooglePlacesUrl() + '?location=' + lat +','+long + '&radius=900&type=food,restaurant,cafe,coffee&key=' + gconfigfactory.getGooglePlacesAPI());
+
+                $http(
+                    {
+                    url:gconfigfactory.getGooglePlacesUrl() + '?location=' + lat +','+long + '&radius=900&type=food&key=' + gconfigfactory.getGooglePlacesAPI(),
+                     dataType:'JSONP',
+                     method:'GET'
+                    }).success(function(res) {
+                    result = res;
+                    $ionicLoading.hide();
+                });
+            });
+            return result;
+        }
     };
 })
-.factory('nightlifefactory', function() {
+.factory('nightlifefactory', function(gconfigfactory,$http,$ionicLoading) {
     
     var nl = [
         {id:0,type:'nightlife',name:'Nightlife 1',desc:'This is a NL',
@@ -41,9 +71,36 @@ angular.module('zatiqctrl.datafactory', [])
         getNLs: function() {
             return nl;
         },
+        
+        getNearByNightlifes: function() {
+            var lat = 0;
+            var long = 0;
+            var result = null;
+            navigator.geolocation.getCurrentPosition(function (position) {
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+            
+                $ionicLoading.show({
+                    template: 'Loading...'
+                }).then(function () {
+                    console.log("The loading indicator is now displayed");
+                });
+
+                $http(
+                    {
+                    url:gconfigfactory.getGooglePlacesUrl() + '?location=' + lat +','+long + '&radius=900&type=food&key=' + gconfigfactory.getGooglePlacesAPI(),
+                     dataType:'JSONP',
+                     method:'GET'
+                    }).success(function(res) {
+                    result = res;
+                    $ionicLoading.hide();
+                });
+            });
+            return result;
+        }
     };
 })
-.factory('placesfactory', function() {
+.factory('placesfactory', function(gconfigfactory,$http,$ionicLoading) {
     var places = [
         {id:0,type:'nightlife',name:'Places 1',desc:'This is a Place',
          img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1920px-Good_Food_Display_-_NCI_Visuals_Online.jpg',meta:[]},
@@ -58,7 +115,39 @@ angular.module('zatiqctrl.datafactory', [])
         },
     };
 })
-.factory('ratingsreviewsfactory', function() {
+.factory('businesssearchfactory',function(gconfigfactory,$http,$ionicLoading){
+    
+    return {
+        searchBusinesses: function(keyword) {
+            var lat = 0;
+            var long = 0;
+            var result = null;
+            navigator.geolocation.getCurrentPosition(function (position) {
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+            
+                $ionicLoading.show({
+                    template: 'Loading...'
+                }).then(function () {
+                    console.log("The loading indicator is now displayed");
+                });
+                
+                $http(
+                    {
+                    url:gconfigfactory.getGooglePlacesUrl() + '?location=' + lat +','+long + '&radius=500&type=food&key=' + gconfigfactory.getGooglePlacesAPI(),
+                     dataType:'JSONP',
+                     method:'GET'
+                    }).success(function(res) {
+                    result = res;
+                    $ionicLoading.hide();
+                });
+            });
+            return result;
+        }
+        
+    }
+})
+.factory('ratingsreviewsfactory', function(gconfigfactory,$http,$ionicLoading) {
     
     //  {id:0,meta:'',review:'',rate}
     var ratingsreviews = new Array();
@@ -73,7 +162,7 @@ angular.module('zatiqctrl.datafactory', [])
         }
     };
 })
-.factory('usersfactory', function() {
+.factory('usersfactory', function(gconfigfactory,$http,$ionicLoading) {
     var users = new Array();
     return {
         getRatings: function() {
@@ -86,6 +175,9 @@ angular.module('zatiqctrl.datafactory', [])
         }
     };
 })
-.factory('nearbyfactory',function() {
+.factory('nearbyfactory',function(gconfigfactory,$http,$ionicLoading) {
     var dData = "";
+})
+.factory('businesscategoryfactory', function() {
+    
 })

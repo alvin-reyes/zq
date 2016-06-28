@@ -1,3 +1,7 @@
 angular.module('zatiqctrl.controllers')
 
-.controller('DashboardCtrl', function($scope) {})
+.controller('DashboardCtrl', function($scope) {
+
+
+
+})
