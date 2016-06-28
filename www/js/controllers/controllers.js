@@ -13,7 +13,7 @@ angular.module('zatiqctrl.controllers', [])
     .controller('TopFoodCtrl', function ($scope, $http, $ionicLoading, foodfactory, gconfigfactory) {
         $scope.foods = foodfactory.getFoods();
         $scope.getFoodBusinesses = function () {
-            return foodfactory.getNearbyFoods();
+            return console.log(foodfactory.getNearbyFoods().result());
         }
     })
     .controller('TopNightLfCtrl', function ($scope, nightlifefactory) {
