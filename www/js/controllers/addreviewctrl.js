@@ -49,9 +49,7 @@ angular.module('zatiqctrl.controllers')
     }
     
     $scope.moredata = false;
-    
-    $scope.loadMoreData = function()
-    {         
+    $scope.loadMoreData = function()    {
         $scope.items.push({id: $scope.items.length});
         if($scope.items.length==100)
         {
@@ -64,9 +62,7 @@ angular.module('zatiqctrl.controllers')
     $scope.sbusiness = [];
     $scope.nearbyB = [];
     
-    
     $scope.nearByBusinesses = function() {
-        console.log(sampleData[0]);
         $scope.nearbyB.push({id:$scope.nearbyB.length,data:sampleData[0]});
         if($scope.nearbyB.length == 5) {
             $scope.moredata = true;

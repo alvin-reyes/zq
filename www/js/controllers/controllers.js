@@ -1,4 +1,3 @@
-'use strict';
 angular.module('zatiqctrl.controllers', [])
     .controller('ChatsCtrl', function ($scope, Chats) {
 
@@ -10,20 +9,26 @@ angular.module('zatiqctrl.controllers', [])
     .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
         $scope.chat = Chats.get($stateParams.chatId);
     })
-    .controller('TopFoodCtrl', function ($scope, $http, $ionicLoading, foodfactory, gconfigfactory) {
-        $scope.foods = foodfactory.getFoods();
-        $scope.getFoodBusinesses = function () {
-            return console.log(foodfactory.getNearbyFoods().result());
+    .controller('TopFoodCtrl', function ($scope, $http, $ionicLoading, nearbyfactory, gconfigfactory) {
+        $scope.business = [];
+        $scope.getBusinesses = function() {
+            $scope.business = nearbyfactory
+                .resultContainer(new Array()).getNearby(['restaurants','food'],3).result();
         }
     })
-    .controller('TopNightLfCtrl', function ($scope, nightlifefactory) {
-        $scope.nightlifes = nightlifefactory.getNLs();
+    .controller('TopNightLfCtrl', function ($scope, nearbyfactory) {
+        $scope.business;
+        $scope.getBusinesses = function() {
+            $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['eve','night'],3).result();
+        }
     })
-    .controller('TopPlacesCtrl', function ($scope, placesfactory) {
-        $scope.places = placesfactory.getPlaces();
+    .controller('TopPlacesCtrl', function ($scope, nearbyfactory) {
+        $scope.business;
+        $scope.getBusinesses = function() {
+            $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['places'],3).result();
+        }
     })
     .controller('TopMoreCtrl', function ($scope) {
-        console.log("top more");
     })
     .controller('AccountCtrl', function ($scope) {
         $scope.settings = {

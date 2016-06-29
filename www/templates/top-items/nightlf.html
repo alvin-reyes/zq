@@ -1,21 +1,22 @@
-<ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome">
+<ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome" ng-init="getBusinesses()">
     <ion-content>
+
         <div class="bar bar-header item-input-inset">
             <label class="item-input-wrapper">
                 <i class="icon ion-ios-search placeholder-icon"></i>
                 <input type="search" placeholder="Search Business" on-blur="">
             </label>
         </div>
-
         <div class="list">
 
-            <a class="item item-thumbnail-left" href="#" collection-repeat="nl in nightlifes">
-                <img src="{{nl.img}}">
+            <a class="item item-thumbnail-left" href="#" collection-repeat="nl in business">
+                <img src="{{nl.photos[0].getUrl({'maxWidth': 80, 'maxHeight': 80})}}">
                 <h2>{{nl.name}}</h2>
-                <p>{{nl.desc}}</p>
+                <p>{{nl.vicinity}}</p>
+                <p>Rate: {{food.rating}}</p>
             </a>
 
         </div>
-
+        <div id="map" ng-hide="true"></div>
     </ion-content>
 </ion-view>

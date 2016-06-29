@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome" ng-init="getFoodBusinesses()">
+<ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome" ng-init="getBusinesses()">
     <ion-content>
 
         <div class="bar bar-header item-input-inset">
@@ -9,10 +9,11 @@
         </div>
         <div class="list">
 
-            <a class="item item-thumbnail-left" href="#" collection-repeat="food in foods">
-                <img src="{{food.img}}">
+            <a class="item item-thumbnail-left" href="#" collection-repeat="food in business">
+                <img src="{{food.photos[0].getUrl({'maxWidth': 80, 'maxHeight': 80})}}">
                 <h2>{{food.name}}</h2>
-                <p>{{food.desc}}</p>
+                <p>{{food.vicinity}}</p>
+                <p>Rate: {{food.rating}}</p>
             </a>
 
         </div>

@@ -1,11 +1,15 @@
 angular.module('zatiqctrl.controllers')
 
 .controller('ViewBusinessCtrl', function($scope) {
-    $scope.init = function(){
+    $scope.init = function() {
          $ionicLoading.show({
               template: 'Loading...'
         }).then(function(){
            console.log("The loading indicator is now displayed");
         });
+    }
+    
+    $scope.viewbusiness = function() {
+        
     }
 });
