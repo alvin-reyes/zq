@@ -1,7 +1,9 @@
 angular.module('zatiqctrl.controllers')
 
-.controller('ViewBusinessCtrl', function($scope,$ionicLoading,selectedfactory) {
+.controller('ViewBusinessCtrl', function($scope,$ionicLoading,$cordovaGeolocation,selectedfactory) {
     $scope.selectedBusiness;
+    $scope.map;
+    var options = {timeout: 10000, enableHighAccuracy: true};
     $scope.init = function() {
          $ionicLoading.show({
               template: 'Loading...'
@@ -9,9 +11,24 @@ angular.module('zatiqctrl.controllers')
              console.log(selectedfactory.getSelectedBusines());
            console.log("The loading indicator is now displayed");
         });
-        $scope.selectedBusiness =selectedfactory.getSelectedBusines();
-        //  Load map.
-        //  Load Coordinates.
+        $scope.selectedBusiness = selectedfactory.getSelectedBusines();
+        var latLng = new google.maps.LatLng($scope.selectedBusiness.geometry.location.lat(), $scope.selectedBusiness.geometry.location.lng());
+        var mapOptions = {
+          center: latLng,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        console.log(">>>");
+        $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        console.log(">>>");
+        google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+          var marker = new google.maps.Marker({
+              map: $scope.map,
+              animation: google.maps.Animation.DROP,
+              position: latLng
+          });      
+
+        });
         $ionicLoading.hide();
     }
 });
