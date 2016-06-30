@@ -75,6 +75,11 @@ angular.module('zatiqctrl', ['ionic', 'ngCordova', 'zatiqctrl.controllers', 'zat
         url: '/checkin/'
         , templateUrl: 'templates/checkin/index.html'
         , controller: 'CheckinCtrl'
+    })    
+    .state('zqt.viewbusiness', {
+        url: '/viewbusiness/'
+        , templateUrl: 'templates/business/index.html'
+        , controller: 'ViewBusinessCtrl'
     })
 
     $urlRouterProvider.otherwise('/zqt/dashboard');
