@@ -6,17 +6,13 @@
                 <input type="search" placeholder="Search Business" on-blur="">
             </label>
         </div>
-
+        <div class="item item-divider">Popular</div>
         <div class="list">
-
-            <a class="item item-thumbnail-left" href="#">
-                <img src="cover.jpg">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
-            </a>
-
-
+          <a class="item item-icon-left" on-tap="viewsearchcategory(pcat)" ng-repeat="pcat in popularcategories">
+            <i class="icon icon ion-arrow-right-c"></i>
+                {{pcat.name}}
+          </a>
         </div>
-
+        <div class="item item-divider">All Categories</div>
     </ion-content>
 </ion-view>

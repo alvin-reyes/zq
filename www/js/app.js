@@ -46,10 +46,15 @@ angular.module('zatiqctrl', ['ionic', 'ngCordova', 'zatiqctrl.controllers', 'zat
         , controller: 'TopPlacesCtrl'
     })
     .state('zqt.top-more', {
-            url: '/top-more/'
-            , templateUrl: 'templates/top-items/more.html'
-            , controller: 'TopMoreCtrl'
-        })
+        url: '/top-more/'
+        , templateUrl: 'templates/top-items/more.html'
+        , controller: 'TopMoreCtrl'
+    })
+    .state('zqt.top-more-search', {
+        url: '/top-more-search/'
+        , templateUrl: 'templates/top-items/more-search.html'
+        , controller: 'TopMoreSearchCtrl'
+    })
     .state('zqt.profile', {
         url: '/profile/'
         , templateUrl: 'templates/profile/index.html'

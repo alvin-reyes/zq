@@ -11,7 +11,6 @@ angular.module('zatiqctrl.datafactory')
                     }).then(function () {
                         console.log("The loading indicator is now displayed");
                 });
-                
                 result = resultContainer;
                 return this;
             },

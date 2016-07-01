@@ -1,21 +1,20 @@
-<ion-view view-title="Add Review" ng-init="init()">
-  <ion-content>
-      
-      <div class="bar bar-header item-input-inset">
-          <label class="item-input-wrapper">
-            <i class="icon ion-ios-search placeholder-icon"></i>
-            <input type="search" placeholder="Search Business" on-blur="">
-          </label>
-      </div>
-      
-    <ion-list>
-    <ion-item ng-repeat="item in nearbyB" item="item" on-tap="viewbusiness(item)">
-        Item {{item.id}}
-    </ion-item>
-        <ion-infinite-scroll distance="2"
-                     on-infinite="nearByBusinesses()"
-                     ng-if="!moredata"
-                     ></ion-infinite-scroll>
-      </ion-list>
-  </ion-content>
-</ion-view>
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <button class="button ion-close" on-tap="postreviewmodal.hide()"></button>
+      <h1 class="title">Post Review</h1>
+      <button class="button button-clear button-primary pull left" ng-click="postreview()">Post</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <ion-item>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+        <div class="item item-divider">Reviews by other</div>
+      <div class="item item-body" ng-repeat="review in reviews">
+            <p>{{review.user}}</p>
+            <p>Rate: {{review.rating}}</p>
+            <p>
+              {{review.review}}
+            </p>
+        </div>
+    </ion-content>
+  </ion-modal-view>
