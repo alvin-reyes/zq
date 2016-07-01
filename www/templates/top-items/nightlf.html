@@ -1,5 +1,5 @@
 <ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome" ng-init="getBusinesses()">
-    <ion-content>
+    <ion-content overflow-scroll="true">
 
         <div class="bar bar-header item-input-inset">
             <label class="item-input-wrapper">
@@ -7,10 +7,10 @@
                 <input type="search" placeholder="Search Business" on-blur="">
             </label>
         </div>
+        <div class="item item-divider">Nightlife</div>
         <div class="list">
-
             <a class="item item-thumbnail-left" on-tap="viewbusiness(nl)"  collection-repeat="nl in business">
-                <img src="{{nl.photos[0].getUrl({'maxWidth': 80, 'maxHeight': 80})}}">
+                <img src="{{nl.photos[0].imageUrl}}">
                 <h2>{{nl.name}}</h2>
                 <p>{{nl.vicinity}}</p>
                 <p>Rate: {{food.rating}}</p>

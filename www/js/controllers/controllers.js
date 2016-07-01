@@ -50,9 +50,10 @@ angular.module('zatiqctrl.controllers', [])
 })
 .controller('TopMoreSearchCtrl', function ($scope,$state,nearbyfactory,selectedfactory) {
     $scope.business;
+    $scope.category;
     $scope.getBusinesses = function() {
-        console.log(selectedfactory.getSelectedCategory().meta_code);
-        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(selectedfactory.getSelectedCategory().meta_code,6).result();
+        $scope.category = selectedfactory.getSelectedCategory();
+        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(selectedfactory.getSelectedCategory().meta_code,5).result();
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);

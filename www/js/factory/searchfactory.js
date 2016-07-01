@@ -37,7 +37,7 @@ angular.module('zatiqctrl.datafactory')
 
                     var request = {
                         location: currentLoc
-                        , radius: '500'
+                        , radius: '1000'
                         , types: types
                     };
                         
@@ -48,19 +48,39 @@ angular.module('zatiqctrl.datafactory')
                         if (status == google.maps.places.PlacesServiceStatus.OK) {
                             for (var i = 0; i < limit; i++) {
                                 var place = results[i];
+                                if(place == null || place == undefined) {break;}
+                                if(place.photos != undefined) {
+                                    place.photos[0]['imageUrl'] = place.photos[0].getUrl({maxWidth:80,maxHeight:80});
+                                }
                                 result.push(place);
                             }
                             $ionicLoading.hide();
-                            console.log(result);
                         }
                     } 
                 },function(err) {
-                // error
+                     $ionicLoading.hide();
                 });
                 return this;
             }
         };
     })
+.factory('searchbusinessfactory', function () {
+
+    return {
+
+        searchFactoryByTypes: function (types) {
+
+        }
+        , searchFactoryByType: function (type) {
+
+        }
+        , searchFactoryByName: function (name) {
+
+        }
+
+
+    }
+})
 .factory('ratingsreviewsfactory', function (gconfigfactory, $http, $ionicLoading) {
 
     //  {id:0,meta:'',review:'',rate}
@@ -100,23 +120,7 @@ angular.module('zatiqctrl.datafactory')
 .factory('businesscategoryfactory', function () {
 
 })
-.factory('searchbusinessfactory', function () {
 
-    return {
-
-        searchFactoryByTypes: function (types) {
-
-        }
-        , searchFactoryByType: function (type) {
-
-        }
-        , searchFactoryByName: function (name) {
-
-        }
-
-
-    }
-})
 .factory('advancesearchfactory', function () {
 
     })
