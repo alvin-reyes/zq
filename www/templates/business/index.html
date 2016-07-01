@@ -8,22 +8,11 @@
       <a class="button">Checkin</a>
     </div>
     <div class="item item-divider">Reviews</div>
-      <div class="item item-body">
-            <p>Alvin Reyes</p>
-            <p>Rate: 4.5</p>
+      <div class="item item-body" ng-repeat="review in reviews">
+            <p>{{review.user}}</p>
+            <p>Rate: {{review.rating}}</p>
             <p>
-              This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-              the content is from a card-body consisting of an image and paragraph text. The footer
-              consists of tabs, icons aligned left, within the card-footer.
-            </p>
-        </div>
-         <div class="item item-body">
-            <p>Alvin Reyes</p>
-            <p>Rate: 4.5</p>
-            <p>
-              This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-              the content is from a card-body consisting of an image and paragraph text. The footer
-              consists of tabs, icons aligned left, within the card-footer.
+              {{review.review}}
             </p>
         </div>
     <div class="item item-divider">Similar</div>

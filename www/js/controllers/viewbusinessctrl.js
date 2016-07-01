@@ -1,6 +1,12 @@
 angular.module('zatiqctrl.controllers')
 
 .controller('ViewBusinessCtrl', function($scope,$ionicLoading,$cordovaGeolocation,selectedfactory) {
+    
+    $scope.reviews = [
+        {id:'0',user:'Alvin Reyes','review':'yehey','rating':'4.5'},
+        {id:'0',user:'Alvin Reyes','review':'yehey','rating':'4.5'},
+    ];
+    
     $scope.selectedBusiness;
     $scope.map;
     var options = {timeout: 10000, enableHighAccuracy: true};
