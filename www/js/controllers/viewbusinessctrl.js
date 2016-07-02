@@ -1,6 +1,11 @@
 angular.module('zatiqctrl.controllers')
 
-.controller('ViewBusinessCtrl', function($scope,$ionicLoading,$cordovaGeolocation,selectedfactory) {
+.controller('ViewBusinessCtrl', function($scope,$ionicLoading,$cordovaGeolocation,$ionicScrollDelegate,selectedfactory) {
+
+    $scope.$on("$ionicView.beforeEnter", function(event, data){
+        $ionicScrollDelegate.scrollTop();
+        $scope.init();
+    });
     
     $scope.reviews = [
         {id:'0',user:'Alvin Reyes','review':'yehey','rating':'4.5'},
@@ -14,10 +19,11 @@ angular.module('zatiqctrl.controllers')
          $ionicLoading.show({
               template: 'Loading...'
         }).then(function(){
-             console.log(selectedfactory.getSelectedBusines());
-           console.log("The loading indicator is now displayed");
+            console.log(selectedfactory.getSelectedBusiness().name);
+            console.log("The loading indicator is now displayed");
         });
-        $scope.selectedBusiness = selectedfactory.getSelectedBusines();
+        console.log(selectedfactory.getSelectedBusiness().name);
+        $scope.selectedBusiness = selectedfactory.getSelectedBusiness();
         var latLng = new google.maps.LatLng($scope.selectedBusiness.geometry.location.lat(), $scope.selectedBusiness.geometry.location.lng());
         var mapOptions = {
           center: latLng,

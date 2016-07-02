@@ -1,13 +1,15 @@
-<ion-view view-title="Business" ng-init="init()">
-  <ion-content>
-      {{selectedBusiness.name}}
+<ion-view view-title="Business">
+  <ion-content overflow-scroll="true">
+      <div class="bar header">
+        <h2 class="title">{{selectedBusiness.name}}</h2>
+      </div>
     <div id="map" data-tap-disabled="true"></div>
       <a class="button button-block button-default" href="#/zqt/addreview/">
   Write a review
-</a>
+      </a>
       <div class="button-bar">
-      <a class="button">Add Photo or Video</a>
-      <a class="button">Checkin</a>
+        <a class="button" href="#/zqt/addphotovideo/">Add Photo or Video</a>
+        <a class="button" href="#/zqt/checkin/">Checkin</a>
     </div>
     <div class="item item-divider">Reviews</div>
       <div class="item item-body" ng-repeat="review in reviews">
@@ -19,4 +21,7 @@
         </div>
     <div class="item item-divider">Similar</div>
   </ion-content>
+    
+  <ion-footer-bar class="bar-clear"></ion-footer-bar>
 </ion-view>
+

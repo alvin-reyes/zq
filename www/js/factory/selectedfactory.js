@@ -3,7 +3,7 @@ angular.module('zatiqctrl.datafactory')
     var selBusiness = null;
     var selCategory = null;
     return {
-        getSelectedBusines : function() {
+        getSelectedBusiness : function() {
             return selBusiness;
         },
         getSelectedCategory : function() {

@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome" ng-init="getBusinesses()">
+<ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome">
    <ion-content overflow-scroll="true">
 
         <div class="bar bar-header item-input-inset">
@@ -10,14 +10,14 @@
        <div class="item item-divider">{{category.name}}</div>
         <div class="list">
 
-            <a class="item item-thumbnail-left" on-tap="viewbusiness(food)" collection-repeat="food in business">
-                <img src="{{food.photos[0].imageUrl}}">
-                <h2>{{food.name}}</h2>
-                <p>{{food.vicinity}}</p>
-                <p>Rate: {{food.rating}}</p>
+            <a class="item item-thumbnail-left" on-tap="viewbusiness(bus)" collection-repeat="bus in business">
+                <img src="{{bus.photos[0].imageUrl}}">
+                <h2>{{bus.name}}</h2>
+                <p>{{bus.vicinity}}</p>
+                <p>Rate: {{bus.rating}}</p>
             </a>
 
         </div>
-        <div id="map" ng-hide="true"></div>
     </ion-content>
+    <ion-footer-bar class="bar-clear"></ion-footer-bar>
 </ion-view>

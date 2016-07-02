@@ -10,6 +10,10 @@ angular.module('zatiqctrl.controllers', [])
     $scope.chat = Chats.get($stateParams.chatId);
 })
 .controller('TopFoodCtrl', function ($scope, $state, nearbyfactory, gconfigfactory, selectedfactory) {
+    $scope.$on("$ionicView.beforeEnter", function(event, data){
+        $scope.getBusinesses();
+    });
+    
     $scope.business = [];
     $scope.getBusinesses = function() {
         $scope.business = nearbyfactory
@@ -21,6 +25,9 @@ angular.module('zatiqctrl.controllers', [])
     }
 })
 .controller('TopNightLfCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
+    $scope.$on("$ionicView.beforeEnter", function(event, data){
+        $scope.getBusinesses();
+    });
     $scope.business;
     $scope.getBusinesses = function() {
         $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['eve','night'],3).result();
@@ -31,6 +38,9 @@ angular.module('zatiqctrl.controllers', [])
     }
 })
 .controller('TopPlacesCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
+    $scope.$on("$ionicView.beforeEnter", function(event, data){
+        $scope.getBusinesses();
+    });
     $scope.business;
     $scope.getBusinesses = function() {
         $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['places'],3).result();
@@ -49,6 +59,9 @@ angular.module('zatiqctrl.controllers', [])
     
 })
 .controller('TopMoreSearchCtrl', function ($scope,$state,nearbyfactory,selectedfactory) {
+    $scope.$on("$ionicView.beforeEnter", function(event, data){
+        $scope.getBusinesses();
+    });
     $scope.business;
     $scope.category;
     $scope.getBusinesses = function() {
