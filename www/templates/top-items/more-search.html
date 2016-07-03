@@ -1,6 +1,5 @@
 <ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome">
    <ion-content overflow-scroll="true">
-
         <div class="bar bar-header item-input-inset">
             <label class="item-input-wrapper">
                 <i class="icon ion-ios-search placeholder-icon"></i>
@@ -9,14 +8,12 @@
         </div>
        <div class="item item-divider">{{category.name}}</div>
         <div class="list">
-
             <a class="item item-thumbnail-left" on-tap="viewbusiness(bus)" collection-repeat="bus in business">
                 <img src="{{bus.photos[0].imageUrl}}">
                 <h2>{{bus.name}}</h2>
                 <p>{{bus.vicinity}}</p>
                 <p>Rate: {{bus.rating}}</p>
             </a>
-
         </div>
     </ion-content>
     <ion-footer-bar class="bar-clear"></ion-footer-bar>
