@@ -37,7 +37,7 @@ angular.module('zatiqctrl.datafactory')
 
                     var request = {
                         location: currentLoc
-                        , radius: '700'
+                        , radius: '900'
                         , types: types
                     };
                         
