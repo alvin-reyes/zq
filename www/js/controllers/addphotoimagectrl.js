@@ -8,6 +8,4 @@ angular.module('zatiqctrl.controllers')
            console.log("The loading indicator is now displayed");
         });
     }
-    
-    
 });
