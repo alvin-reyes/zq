@@ -1,3 +1,6 @@
 angular.module('zatiqctrl.controllers')
 
-.controller('ProfileCtrl', function($scope) {})
+.controller('ProfileCtrl', function($scope) {
+    
+    
+})
