@@ -52,6 +52,8 @@ angular.module('zatiqctrl.datafactory')
                                 if(place.photos != undefined) {
                                     place.photos[0]['imageUrl'] = place.photos[0].getUrl({maxWidth:80,maxHeight:80});
                                 }
+                                
+                                //  before push, check if the user already rated this place.
                                 result.push(place);
                             }
                             $ionicLoading.hide();

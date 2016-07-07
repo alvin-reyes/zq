@@ -1,4 +1,4 @@
-angular.module('zatiqctrl', ['ionic', 'ngCordova', 'zatiqctrl.controllers', 'zatiqctrl.services', 'zatiqctrl.datafactory'])
+angular.module('zatiqctrl', ['ionic', 'ionic.rating','ngCordova', 'zatiqctrl.controllers', 'zatiqctrl.services', 'zatiqctrl.datafactory'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
