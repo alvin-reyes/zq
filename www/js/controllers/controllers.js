@@ -1,14 +1,4 @@
 angular.module('zatiqctrl.controllers', [])
-.controller('ChatsCtrl', function ($scope, Chats) {
-
-    $scope.chats = Chats.all();
-    $scope.remove = function (chat) {
-        Chats.remove(chat);
-    };
-})
-.controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
-})
 .controller('TopFoodCtrl', function ($scope, $state, nearbyfactory, gconfigfactory, selectedfactory) {
     $scope.$on("$ionicView.beforeEnter", function(event, data){
         $scope.getBusinesses();
@@ -17,12 +7,13 @@ angular.module('zatiqctrl.controllers', [])
     $scope.business = [];
     $scope.getBusinesses = function() {
         $scope.business = nearbyfactory
-            .resultContainer(new Array()).getNearby(['restaurants','food'],3).result();
+            .resultContainer(new Array()).getNearby(['restaurants','food'],10).result();
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
         $state.go('zqt.viewbusiness');
     }
+
 })
 .controller('TopNightLfCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
     $scope.$on("$ionicView.beforeEnter", function(event, data){
@@ -30,7 +21,7 @@ angular.module('zatiqctrl.controllers', [])
     });
     $scope.business;
     $scope.getBusinesses = function() {
-        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['eve','night'],3).result();
+        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['night_club','casino','bar'],10).result();
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
@@ -43,7 +34,7 @@ angular.module('zatiqctrl.controllers', [])
     });
     $scope.business;
     $scope.getBusinesses = function() {
-        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['places'],3).result();
+        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['premise','park','shopping_mall'],10).result();
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
@@ -66,7 +57,7 @@ angular.module('zatiqctrl.controllers', [])
     $scope.category;
     $scope.getBusinesses = function() {
         $scope.category = selectedfactory.getSelectedCategory();
-        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(selectedfactory.getSelectedCategory().meta_code,5).result();
+        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(selectedfactory.getSelectedCategory().meta_code,10).result();
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);

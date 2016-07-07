@@ -8,15 +8,16 @@
             </label>
         </div>
         <div class="item item-divider">Nightlife</div>
-        <div class="list">
-            <a class="item item-thumbnail-left" on-tap="viewbusiness(nl)"  collection-repeat="nl in business">
+        
+        <ion-list>
+            <ion-item class="item item-thumbnail-left" ng-repeat="nl in business" item="item" on-tap="viewbusiness(nl)">
                 <img src="{{nl.photos[0].imageUrl}}">
                 <h2>{{nl.name}}</h2>
                 <p>{{nl.vicinity}}</p>
                 <p>Rate: {{food.rating}}</p>
-            </a>
-
-        </div>
+            </ion-item>
+        </ion-list>
+        
         <div id="map" ng-hide="true"></div>
     </ion-content>
     <ion-footer-bar class="bar-clear"></ion-footer-bar>

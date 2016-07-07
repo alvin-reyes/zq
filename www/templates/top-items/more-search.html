@@ -7,14 +7,21 @@
             </label>
         </div>
        <div class="item item-divider">{{category.name}}</div>
-        <div class="list">
-            <a class="item item-thumbnail-left" on-tap="viewbusiness(bus)" collection-repeat="bus in business">
+               <ion-list>
+            <ion-item class="item item-thumbnail-left" ng-repeat="bus in business" item="item" on-tap="viewbusiness(bus)">
                 <img src="{{bus.photos[0].imageUrl}}">
                 <h2>{{bus.name}}</h2>
                 <p>{{bus.vicinity}}</p>
                 <p>Rate: {{bus.rating}}</p>
-            </a>
-        </div>
+            </ion-item>
+<!--
+    <ion-infinite-scroll distance="2"
+                     on-infinite="nearByBusinesses()"
+                     ng-if="!moredata"
+                     ></ion-infinite-scroll>
+-->
+        </ion-list>
+        <div id="map" ng-hide="true"></div>
     </ion-content>
     <ion-footer-bar class="bar-clear"></ion-footer-bar>
 </ion-view>
