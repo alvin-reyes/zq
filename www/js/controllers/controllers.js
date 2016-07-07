@@ -13,7 +13,6 @@ angular.module('zatiqctrl.controllers', [])
         selectedfactory.setSelectedBusiness(place);
         $state.go('zqt.viewbusiness');
     }
-
 })
 .controller('TopNightLfCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
     $scope.$on("$ionicView.beforeEnter", function(event, data){

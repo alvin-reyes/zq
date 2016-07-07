@@ -1,5 +1,5 @@
 angular.module('zatiqctrl.datafactory')
-.factory('ratingsangreviewfactory',function(gconfigfactory) {
+.factory('ratingsandreviewfactory',function(gconfigfactory) {
     
     var reviews = null;
     var ratings = null;
@@ -12,12 +12,16 @@ angular.module('zatiqctrl.datafactory')
             return ratings;
         },
         saveReview : function(user,place,review) {
-            reviews.push({'id':reviewandrating.length+1,'user':user,'review':review,'place': place});
+            reviews.push({'id':reviews.length+1,'user':user,'review':review,'place': place});
+            
+            //  call a promise here and pass it to the backend.
             return this;
         },
         
         saveRating : function(user,place,rating) {
-            reviews.push({'id':reviewandrating.length+1,'user':user,'rating':rating,'place': place});
+            reviews.push({'id':ratings.length+1,'user':user,'rating':rating,'place': place});
+            
+            //  call a promise here and pass it to the backend.
             return this;
         }
     }

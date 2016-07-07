@@ -39,7 +39,7 @@ angular.module('zatiqctrl.controllers')
          "types" : [ "locality", "political" ],
          "vicinity" : "Toronto"
       }];
-    
+    $scope.selectedBusiness;
     $scope.init = function(){
          $ionicLoading.show({
               template: 'Loading...'
