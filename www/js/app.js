@@ -14,7 +14,14 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
 })
 .config(function($ionicConfigProvider) {
     $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-left');
-     $ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.views.transition('none');
+//    $ionicPlatform.ready(function () {
+//        if (ionic.Platform.grade.toLowerCase()!='a') {
+//            $ionicConfig.views.transition('none');
+//            console.log('Ionic Platform Grade is not A, disabling views transitions ');
+//        }
+//    })
 })
 .config(function ($stateProvider, $urlRouterProvider) {
 
