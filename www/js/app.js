@@ -12,7 +12,9 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
         }
     });
 })
-
+.config(function($ionicConfigProvider) {
+    $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-left');
+})
 .config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider

@@ -122,7 +122,6 @@ angular.module('zatiqctrl.datafactory')
 .factory('businesscategoryfactory', function () {
 
 })
-
 .factory('advancesearchfactory', function () {
 
     })

@@ -1,10 +1,23 @@
 <ion-view class="has-footer">
+<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+</ion-nav-bar>
   <ion-content overflow-scroll="false">
       <div class="bar bar-header bar-positive">
        <div class="h1 title">  {{selectedBusiness.name}}</div>
-      
       </div>
-      <div id="map"></div>
+
+      
+      <div class="hero" style="background-image: url('{{selectedBusiness.photos[0].imageUrl}}'); background-size:cover;">
+
+</div>
+<!--
+<div id="map" data-tap-disabled="true"></div>
+ 
+      <map on-create="mapCreated(map)" data-tap-disabled="true"></map>
+-->
+
       <button class="button button-block button-positive" href="#/zblk/addreview/">
         Write a review
       </button>
