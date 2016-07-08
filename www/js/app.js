@@ -108,8 +108,8 @@ angular.module('zatiqctrl')
 
       var hideSheet = $ionicActionSheet.show({
         buttons: [
-          { text: '<b>Share</b> This' },
-          { text: 'Move' }
+          { text: "A" },
+          { text: 'B' }
         ],
         destructiveText: 'Add Review',
         cancelText: 'Cancel',

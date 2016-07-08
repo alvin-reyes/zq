@@ -41,6 +41,7 @@ angular.module('zatiqctrl.controllers', [])
     }
 })
 .controller('TopMoreCtrl', function ($scope,$state,businessfactory,selectedfactory) {
+    
     $scope.popularcategories = businessfactory.getPopularCategories();
     $scope.viewsearchcategory = function(cat) {
         selectedfactory.setSelectedCategory(cat);
