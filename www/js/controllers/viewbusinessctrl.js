@@ -1,12 +1,24 @@
 angular.module('zatiqctrl.controllers')
 
-.controller('ViewBusinessCtrl', function ($scope, $ionicLoading, $cordovaGeolocation, $ionicScrollDelegate, selectedfactory) {
+.controller('ViewBusinessCtrl', function ($scope,$state, $ionicLoading, $cordovaGeolocation, $ionicScrollDelegate, selectedfactory) {
 
     $scope.$on("$ionicView.beforeEnter", function (event, data) {
         $ionicScrollDelegate.scrollTop();
         $scope.init();
     });
 
+    $scope.addReview = function() {
+        $state.go('zblk.addreview');
+    }
+    
+    $scope.addPhotoVideo = function() {
+        $state.go('zblk.addphotovideo');
+    }
+    
+    $scope.checkin = function() {
+        $state.go('zblk.checkin');
+    }
+    
     $scope.reviews = [
         {
             id: '0'
@@ -57,11 +69,9 @@ angular.module('zatiqctrl.controllers')
         $scope.map = map;
         $ionicLoading.hide();
     }
-
     $scope.mapCreated = function (map) {
         $scope.map = map;
     };
-
     $scope.centerOnMe = function () {
         console.log("Centering");
         if (!$scope.map) {

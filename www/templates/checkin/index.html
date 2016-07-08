@@ -1,20 +1,18 @@
-<ion-modal-view>
-    <ion-header-bar class="bar bar-header bar-positive">
-        <button class="button ion-close" on-tap="postreviewmodal.hide()"></button>
-      <h1 class="title">Check in</h1>
-      <button class="button button-clear button-primary pull left" ng-click="postreview()">Post</button>
-    </ion-header-bar>
-    <ion-content class="padding">
-        <ion-item>
-          <ion-textarea></ion-textarea>
-        </ion-item>
-        <div class="item item-divider">Reviews by other</div>
-      <div class="item item-body" ng-repeat="review in reviews">
-            <p>{{review.user}}</p>
-            <p>Rate: {{review.rating}}</p>
-            <p>
-              {{review.review}}
-            </p>
-        </div>
+<ion-view>
+<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+</ion-nav-bar>
+  <ion-content overflow-scroll="false">
+      <div class="bar bar-header bar-default">
+       <div class="h1 title">  {{selectedBusiness.name}}</div>
+      </div>
+  <label class="item item-input">
+    <textarea placeholder="Comments"></textarea>
+  </label>
+        <div class="item item-divider">Reviews</div>
+        <div class="item item-divider">Similar</div>
     </ion-content>
-  </ion-modal-view>
+
+    <ion-footer-bar class="bar-clear"></ion-footer-bar>
+</ion-view>

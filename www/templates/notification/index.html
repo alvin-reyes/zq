@@ -1,17 +1,13 @@
 <ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome">
-  <ion-content>
-    
-      
-      <div class="list">
 
-        <a class="item item-thumbnail-left" href="#">
-          <img src="cover.jpg">
-          <h2>Pretty Hate Machine</h2>
-          <p>Nine Inch Nails</p>
-        </a>
-
-
+  <ion-content overflow-scroll="false">
+      <div class="bar bar-header bar-default">
+       <div class="h1 title">  {{selectedBusiness.name}}</div>
       </div>
-      
-  </ion-content>
+  <label class="item item-input">
+    <textarea placeholder="Comments"></textarea>
+  </label>
+        <div class="item item-divider">Reviews</div>
+        <div class="item item-divider">Similar</div>
+    </ion-content>
 </ion-view>

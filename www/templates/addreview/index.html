@@ -1,14 +1,16 @@
-<ion-view view-title="Review">
-    <ion-content overflow-scroll="true">
-        <div class="bar header">
-            <h2 class="title">{{selectedBusiness.name}}</h2>
-        </div>
+<ion-view class="has-footer">
+<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+</ion-nav-bar>
+  <ion-content overflow-scroll="false">
+      <div class="bar bar-header bar-default">
+       <div class="h1 title">  {{selectedBusiness.name}}</div>
+      </div>
   <label class="item item-input">
     <textarea placeholder="Comments"></textarea>
   </label>
         <div class="item item-divider">Reviews</div>
         <div class="item item-divider">Similar</div>
     </ion-content>
-
-    <ion-footer-bar class="bar-clear"></ion-footer-bar>
 </ion-view>

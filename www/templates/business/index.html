@@ -1,14 +1,12 @@
-<ion-view class="has-footer">
+<ion-view>
 <ion-nav-bar class="bar-positive">
     <ion-nav-back-button>
     </ion-nav-back-button>
 </ion-nav-bar>
   <ion-content overflow-scroll="false">
-      <div class="bar bar-header bar-positive">
+      <div class="bar bar-header bar-default">
        <div class="h1 title">  {{selectedBusiness.name}}</div>
       </div>
-
-      
       <div class="hero" style="background-image: url('{{selectedBusiness.photos[0].imageUrl}}'); background-size:cover;">
 
 </div>
@@ -18,12 +16,12 @@
       <map on-create="mapCreated(map)" data-tap-disabled="true"></map>
 -->
 
-      <button class="button button-block button-positive" href="#/zblk/addreview/">
+      <button class="button button-block button-positive" on-tap="addReview()">
         Write a review
       </button>
       <div class="button-bar">
-        <button class="button icon-left ion-home button-balanced" href="#/zblk/addphotovideo/">Add Photo or Video</button>
-        <button class="button icon-right ion-star button-energized" href="#/zblk/checkin/">Checkin</button>
+        <button class="button icon-left ion-home button-balanced" on-tap="addPhotoVideo()">Add Photo or Video</button>
+        <button class="button icon-right ion-star button-energized" on-tap="checkin()">Checkin</button>
     </div>
     <div class="item item-divider">Reviews</div>
       <div class="item item-body" ng-repeat="review in reviews">
@@ -35,7 +33,5 @@
         </div>
     <div class="item item-divider">Similar</div>
   </ion-content>
-    
-  <ion-footer-bar class="bar-clear"></ion-footer-bar>
 </ion-view>
 

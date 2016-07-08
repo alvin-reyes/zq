@@ -14,6 +14,7 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
 })
 .config(function($ionicConfigProvider) {
     $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-left');
+     $ionicConfigProvider.tabs.position('bottom');
 })
 .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -72,9 +73,13 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
         , controller: 'ProfileCtrl'
     })
     .state('zqt.notifications', {
-        url: '/notifications/'
-        , templateUrl: 'templates/notification/index.html'
-        , controller: 'NotificationsCtrl'
+        url: '/notifications/',
+        views: {
+            'zqt.notifications': {
+                templateUrl: 'templates/notification/index.html',
+                controller: 'NotificationsCtrl'
+            }
+        }
     })
 
     .state('zblk.addreview', {
@@ -105,7 +110,6 @@ angular.module('zatiqctrl')
 .run(function($ionicPlatform,$rootScope,$ionicActionSheet) {
 
     $rootScope.showActionSheet = function() {
-
       var hideSheet = $ionicActionSheet.show({
         buttons: [
           { text: "A" },
