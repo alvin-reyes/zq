@@ -6,11 +6,11 @@ angular.module('zatiqctrl.datafactory')
         return {
             resultContainer : function(resultContainer) {
                 
-                $ionicLoading.show({
-                        template: 'Loading...'
-                    }).then(function () {
-                        console.log("The loading indicator is now displayed");
-                });
+//                $ionicLoading.show({
+//                        template: 'Loading...'
+//                    }).then(function () {
+//                        console.log("The loading indicator is now displayed");
+//                });
                 result = resultContainer;
                 return this;
             },
@@ -56,11 +56,11 @@ angular.module('zatiqctrl.datafactory')
                                 //  before push, check if the user already rated this place.
                                 result.push(place);
                             }
-                            $ionicLoading.hide();
+                            //$ionicLoading.hide();
                         }
                     } 
                 },function(err) {
-                     $ionicLoading.hide();
+                     //$ionicLoading.hide();
                 });
                 return this;
             }

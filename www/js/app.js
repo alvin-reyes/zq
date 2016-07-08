@@ -1,4 +1,4 @@
-angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova', 'zatiqctrl.controllers', 'zatiqctrl.datafactory'])
+angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova', 'zatiqctrl.controllers', 'zatiqctrl.datafactory','zatiqctrl.services'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -41,8 +41,13 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
             , abstract: true
             , templateUrl: 'templates/blanklayout.html'
         })
+    .state('zblk.login', {
+        url: '/login/'
+        , templateUrl: 'templates/login/index.html'
+        , controller: 'LoginCtrl'
+    })
     .state('zqt.dashboard', {
-        url: '/dashboard'
+        url: '/dashboard/'
         , templateUrl: 'templates/dashboard/zqt-dashboard.html'
         , controller: 'DashboardCtrl'
     })
@@ -110,7 +115,7 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
         , controller: 'ViewBusinessCtrl'
     })
 
-    $urlRouterProvider.otherwise('/zqt/dashboard');
+    $urlRouterProvider.otherwise('/zblk/login/');
 });
 
 angular.module('zatiqctrl')
