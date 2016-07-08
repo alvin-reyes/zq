@@ -11,7 +11,7 @@ angular.module('zatiqctrl.controllers', [])
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
-        $state.go('zqt.viewbusiness');
+        $state.go('zblk.viewbusiness');
     }
 })
 .controller('TopNightLfCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
@@ -24,7 +24,7 @@ angular.module('zatiqctrl.controllers', [])
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
-        $state.go('zqt.viewbusiness');
+        $state.go('zblk.viewbusiness');
     }
 })
 .controller('TopPlacesCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
@@ -37,18 +37,18 @@ angular.module('zatiqctrl.controllers', [])
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
-        $state.go('zqt.viewbusiness');
+        $state.go('zblk.viewbusiness');
     }
 })
 .controller('TopMoreCtrl', function ($scope,$state,businessfactory,selectedfactory) {
     $scope.popularcategories = businessfactory.getPopularCategories();
     $scope.viewsearchcategory = function(cat) {
         selectedfactory.setSelectedCategory(cat);
-        $state.go('zqt.top-more-search');
+        $state.go('srch.top-more-search');
     }
     
 })
-.controller('TopMoreSearchCtrl', function ($scope,$state,nearbyfactory,selectedfactory) {
+.controller('TopMoreSearchCtrl', function ($scope,$state,$location,nearbyfactory,selectedfactory) {
     $scope.$on("$ionicView.beforeEnter", function(event, data){
         $scope.getBusinesses();
     });
@@ -60,6 +60,7 @@ angular.module('zatiqctrl.controllers', [])
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
-        $state.go('zqt.viewbusiness');
+        $state.go('zblk.viewbusiness');
+        //$location.path('/zblk/viewbusiness/');
     }
 })

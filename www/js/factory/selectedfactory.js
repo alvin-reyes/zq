@@ -10,12 +10,12 @@ angular.module('zatiqctrl.datafactory')
             return selCategory;
         },
         setSelectedBusiness : function(place) {
-            this.selBusiness = place;
+            selBusiness = place;
             console.log(place);
             return this;
         },
         setSelectedCategory : function(cat) {
-            this.selCategory = cat;
+            selCategory = cat;
             return this;
         }
     }

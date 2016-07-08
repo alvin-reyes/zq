@@ -1,18 +1,50 @@
-<div class="button-bar">
-    <a class="button" href="#/zqt/top-food/">Food</a>
-    <a class="button" href="#/zqt/top-nightlf/">Night Life</a>
-    <a class="button" href="#/zqt/top-places/">Places</a>
-    <a class="button" href="#/zqt/top-more/">More</a>
+
+<div class="bar bar-header item-input-inset">
+<label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="search" placeholder="Search">
+  </label>
 </div>
 
-<ion-nav-view></ion-nav-view>
-
-<div class="bar bar-footer">
-    <div class="button-bar">
-        <a class="button" href="#/zqt/dashboard/">Home</a>
-        <a class="button" href="#/zqt/profile/">Profile</a>
-        <a class="button" href="#/zqt/addreview/">Add Review</a>
-        <a class="button" href="#/zqt/notifications/">Notifications</a>
-        <a class="button" href="#/zqt/more/">More</a>
-    </div>
+<div class="button-bar bar-positive">
+    <a class="button button-raised ink-dark" href="#/srch/top-food/">Food</a>
+    <a class="button button-raised ink-dark" href="#/srch/top-nightlf/">Night Life</a>
+    <a class="button button-raised ink-dark" href="#/srch/top-places/">Places</a>
+    <a class="button button-raised ink-dark" href="#/srch/top-more/">More</a>
 </div>
+
+    
+<ion-tabs class="tabs-striped tabs-color-default tabs-positive">
+
+  <ion-tab  icon-on="ion-home" icon-off="ion-home">
+      <ion-nav-view id="zqt.dashboard"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab icon-on="ion-person" icon-off="ion-person">
+      <ion-nav-view id="zqt.profile"></ion-nav-view>
+  </ion-tab>
+
+<ion-tab icon-on="icon ion-disc" icon-off="icon ion-disc" ng-click="showActionSheet()">
+      </ion-tab>
+    
+  <ion-tab  icon-on="ion-alert" icon-off="ion-alert">
+      <ion-nav-view id="zqt.notifications"></ion-nav-view>
+  </ion-tab>
+  <ion-tab icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+      <ion-nav-view id="zqt.notifications"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>
+
+
+
+<!--
+<div class="button-bar bar-positive">
+    <a class="button button-raised ink-dark" href="#/zqt/dashboard/">Home</a>
+    <a class="button" href="#/zqt/profile/">Profile</a>
+    <a class="button" href="#/zqt/addreview/">Add Review</a>
+    <a class="button" href="#/zqt/notifications/">Notifications</a>
+    <a class="button" href="#/zqt/more/">More</a>
+</div>
+-->
+
+

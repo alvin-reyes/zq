@@ -1,4 +1,4 @@
-angular.module('zatiqctrl', ['ionic', 'ionic.rating','ngCordova', 'zatiqctrl.controllers', 'zatiqctrl.datafactory'])
+angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova', 'zatiqctrl.controllers', 'zatiqctrl.datafactory'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -16,41 +16,50 @@ angular.module('zatiqctrl', ['ionic', 'ionic.rating','ngCordova', 'zatiqctrl.con
 .config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-        .state('zqt', {
+    .state('srch', {
+            url: '/srch'
+            , abstract: true
+            , templateUrl: 'templates/searchlayout.html'
+        })
+    .state('zqt', {
             url: '/zqt'
             , abstract: true
             , templateUrl: 'templates/masterlayout.html'
         })
-
+    .state('zblk', {
+            url: '/zblk'
+            , abstract: true
+            , templateUrl: 'templates/blanklayout.html'
+        })
     .state('zqt.dashboard', {
         url: '/dashboard'
         , templateUrl: 'templates/dashboard/zqt-dashboard.html'
         , controller: 'DashboardCtrl'
     })
 
-    .state('zqt.top-food', {
+    .state('srch.top-food', {
         url: '/top-food/'
         , templateUrl: 'templates/top-items/food.html'
         , controller: 'TopFoodCtrl'
     })
 
-    .state('zqt.top-nightlf', {
+    .state('srch.top-nightlf', {
         url: '/top-nightlf/'
         , templateUrl: 'templates/top-items/nightlf.html'
         , controller: 'TopNightLfCtrl'
     })
 
-    .state('zqt.top-places', {
+    .state('srch.top-places', {
         url: '/top-places/'
         , templateUrl: 'templates/top-items/places.html'
         , controller: 'TopPlacesCtrl'
     })
-    .state('zqt.top-more', {
+    .state('srch.top-more', {
         url: '/top-more/'
         , templateUrl: 'templates/top-items/more.html'
         , controller: 'TopMoreCtrl'
     })
-    .state('zqt.top-more-search', {
+    .state('srch.top-more-search', {
         url: '/top-more-search/'
         , templateUrl: 'templates/top-items/more-search.html'
         , controller: 'TopMoreSearchCtrl'
@@ -58,30 +67,30 @@ angular.module('zatiqctrl', ['ionic', 'ionic.rating','ngCordova', 'zatiqctrl.con
     .state('zqt.profile', {
         url: '/profile/'
         , templateUrl: 'templates/profile/index.html'
-        , controller: 'TopMoreCtrl'
+        , controller: 'ProfileCtrl'
     })
     .state('zqt.notifications', {
         url: '/notifications/'
         , templateUrl: 'templates/notification/index.html'
-        , controller: 'TopMoreCtrl'
+        , controller: 'NotificationsCtrl'
     })
 
-    .state('zqt.addreview', {
+    .state('zblk.addreview', {
         url: '/addreview/'
         , templateUrl: 'templates/addreview/index.html'
         , controller: 'AddReviewCtrl'
     })
-    .state('zqt.addphotovideo', {
+    .state('zblk.addphotovideo', {
         url: '/addphotovideo/'
         , templateUrl: 'templates/addphotovideo/index.html'
         , controller: 'AddPhotoVideoCtrl'
     })
-    .state('zqt.checkin', {
+    .state('zblk.checkin', {
         url: '/checkin/'
         , templateUrl: 'templates/checkin/index.html'
         , controller: 'CheckinCtrl'
     })    
-    .state('zqt.viewbusiness', {
+    .state('zblk.viewbusiness', {
         url: '/viewbusiness/'
         , templateUrl: 'templates/business/index.html'
         , controller: 'ViewBusinessCtrl'
@@ -89,3 +98,28 @@ angular.module('zatiqctrl', ['ionic', 'ionic.rating','ngCordova', 'zatiqctrl.con
 
     $urlRouterProvider.otherwise('/zqt/dashboard');
 });
+
+angular.module('zatiqctrl')
+.run(function($ionicPlatform,$rootScope,$ionicActionSheet) {
+
+    $rootScope.showActionSheet = function() {
+
+      var hideSheet = $ionicActionSheet.show({
+        buttons: [
+          { text: '<b>Share</b> This' },
+          { text: 'Move' }
+        ],
+        destructiveText: 'Add Review',
+        cancelText: 'Cancel',
+        cancel: function() {
+        // add cancel code..
+        },
+        buttonClicked: function(index) {
+          return true;
+        }
+    });
+
+
+  };
+
+})

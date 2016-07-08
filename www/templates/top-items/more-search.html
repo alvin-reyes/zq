@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true" hide-back-button="true" view-title="welcome">
+<ion-view hide-nav-bar="true" hide-back-button="false" class="has-footer">
    <ion-content overflow-scroll="true">
         <div class="bar bar-header item-input-inset">
             <label class="item-input-wrapper">
@@ -7,7 +7,7 @@
             </label>
         </div>
        <div class="item item-divider">{{category.name}}</div>
-               <ion-list>
+           <ion-list>
             <ion-item class="item item-thumbnail-left" ng-repeat="bus in business" item="item" on-tap="viewbusiness(bus)">
                 <img src="{{bus.photos[0].imageUrl}}">
                 <h2>{{bus.name}}</h2>

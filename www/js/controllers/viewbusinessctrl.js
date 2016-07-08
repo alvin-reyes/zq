@@ -19,7 +19,7 @@ angular.module('zatiqctrl.controllers')
          $ionicLoading.show({
               template: 'Loading...'
         }).then(function(){
-            console.log(selectedfactory.getSelectedBusiness().name);
+            console.log(selectedfactory.getSelectedBusiness());
             console.log("The loading indicator is now displayed");
         });
         console.log(selectedfactory.getSelectedBusiness().name);
