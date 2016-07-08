@@ -8,6 +8,7 @@ angular.module('zatiqctrl.controllers', [])
     $scope.getBusinesses = function() {
         $scope.business = nearbyfactory
             .resultContainer(new Array()).getNearby(['restaurants','food'],10).result();
+        $scope.$broadcast('scroll.refreshComplete');
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
@@ -21,6 +22,7 @@ angular.module('zatiqctrl.controllers', [])
     $scope.business;
     $scope.getBusinesses = function() {
         $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['night_club','casino','bar'],10).result();
+        $scope.$broadcast('scroll.refreshComplete');
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
@@ -34,6 +36,7 @@ angular.module('zatiqctrl.controllers', [])
     $scope.business;
     $scope.getBusinesses = function() {
         $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['premise','park','shopping_mall'],10).result();
+        $scope.$broadcast('scroll.refreshComplete');
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
@@ -58,6 +61,7 @@ angular.module('zatiqctrl.controllers', [])
     $scope.getBusinesses = function() {
         $scope.category = selectedfactory.getSelectedCategory();
         $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(selectedfactory.getSelectedCategory().meta_code,10).result();
+        $scope.$broadcast('scroll.refreshComplete');
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
