@@ -38,7 +38,7 @@ angular.module('zatiqctrl.controllers')
     $scope.map;
     var options = {
         timeout: 10000
-        , enableHighAccuracy: true
+        , enableHighAccuracy: false
     };
     $scope.init = function () {
         $ionicLoading.show({
@@ -47,7 +47,7 @@ angular.module('zatiqctrl.controllers')
             console.log(selectedfactory.getSelectedBusiness());
             console.log("The loading indicator is now displayed");
         });
-        console.log(selectedfactory.getSelectedBusiness().name);
+
         $scope.selectedBusiness = selectedfactory.getSelectedBusiness();
         var latLng = new google.maps.LatLng($scope.selectedBusiness.geometry.location.lat(), $scope.selectedBusiness.geometry.location.lng());
         var mapOptions = {

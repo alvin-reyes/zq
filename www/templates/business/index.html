@@ -8,20 +8,20 @@
        <div class="h1 title">  {{selectedBusiness.name}}</div>
       </div>
       <div class="hero" style="background-image: url('{{selectedBusiness.photos[0].imageUrl}}'); background-size:cover;">
-
+          
 </div>
-<!--
-<div id="map" data-tap-disabled="true"></div>
- 
       <map on-create="mapCreated(map)" data-tap-disabled="true"></map>
+<!--
+    <div id="map" data-tap-disabled="true"></div>
+    <map on-create="mapCreated(map)" data-tap-disabled="true"></map>
 -->
 
       <button class="button button-block button-positive" on-tap="addReview()">
         Write a review
       </button>
       <div class="button-bar">
-        <button class="button icon-left ion-home button-balanced" on-tap="addPhotoVideo()">Add Photo or Video</button>
-        <button class="button icon-right ion-star button-energized" on-tap="checkin()">Checkin</button>
+        <button class="button icon-left button-balanced" on-tap="addPhotoVideo()">Add Photo or Video</button>
+        <button class="button icon-right button-energized" on-tap="checkin()">Checkin</button>
     </div>
     <div class="item item-divider">Reviews</div>
       <div class="item item-body" ng-repeat="review in reviews">

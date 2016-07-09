@@ -70,7 +70,7 @@ angular.module('zatiqctrl.datafactory')
                 var long = 0;
                 var currentLoc;
                 var map;
-                var posOptions = {timeout: 10000, enableHighAccuracy: false};
+                var posOptions = {timeout: 3000, enableHighAccuracy: false};
                 var currentLoc = $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
     
                     lat = position.coords.latitude;
@@ -108,7 +108,9 @@ angular.module('zatiqctrl.datafactory')
                     }
                 },function(err) {
                      //$ionicLoading.hide();
+                    console.log(err);
                 });
+
                 return this;
             }
         };
