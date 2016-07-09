@@ -16,12 +16,12 @@
     
 <ion-tabs class="tabs-striped tabs-color-default tabs-positive">
 
-  <ion-tab  icon-on="ion-home" icon-off="ion-home">
-      <ion-nav-view id="zqt.dashboard"></ion-nav-view>
+  <ion-tab  icon-on="ion-home" icon-off="ion-home" ui-sref="zqt.dashboard">
+      <ion-nav-view name="zqt.dashboard"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab icon-on="ion-person" icon-off="ion-person">
-      <ion-nav-view id="zqt.profile"></ion-nav-view>
+  <ion-tab icon-on="ion-person" icon-off="ion-person" ui-sref="zqt.profile">
+      <ion-nav-view name="zqt.profile"></ion-nav-view>
   </ion-tab>
 
 <ion-tab icon-on="icon ion-disc" icon-off="icon ion-disc" ng-click="showActionSheet()">
