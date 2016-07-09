@@ -14,17 +14,17 @@
     
 
         <div class="row" ng-repeat="pcat in popularcategories" ng-if="$index % 2 === 0">
-            <div on-tap="viewsearchcategory(popularcategories[$index])" class="col-md-50 list card" ng-if="$index < popularcategories.length">
+            <a on-tap="viewbusiness({{popularcategories[$index]}})" href="#/srch/search/{{popularcategories[$index].name}}/" class="col-md-50 list card" ng-if="$index < popularcategories.length">
                   <div class="item item-text-wrap">
                     {{popularcategories[$index].name}}
                   </div>
        
-            </div>
-            <div on-tap="viewsearchcategory(popularcategories[$index + 1])" class="col-md-50 list card" ng-if="$index + 1 < popularcategories.length">
+            </a>
+            <a on-tap="viewbusiness({{popularcategories[$index + 1]}})" href="#/srch/search/{{popularcategories[$index + 1].name}}/" class="col-md-50 list card" ng-if="$index + 1 < popularcategories.length">
                  <div class="item item-text-wrap">
-                {{popularcategories[$index + 1].name}}
+                    {{popularcategories[$index + 1].name}}
                 </div>
-            </div>
+            </a>
         </div>
         <div class="item item-divider">All Categories</div>
     </ion-content>

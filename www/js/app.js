@@ -16,12 +16,6 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
     $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-left');
     $ionicConfigProvider.tabs.position('bottom');
     $ionicConfigProvider.views.transition('none');
-//    $ionicPlatform.ready(function () {
-//        if (ionic.Platform.grade.toLowerCase()!='a') {
-//            $ionicConfig.views.transition('none');
-//            console.log('Ionic Platform Grade is not A, disabling views transitions ');
-//        }
-//    })
 })
 .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -30,17 +24,17 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
             url: '/srch'
             , abstract: true
             , templateUrl: 'templates/searchlayout.html'
-        })
+    })
     .state('zqt', {
             url: '/zqt'
             , abstract: true
             , templateUrl: 'templates/masterlayout.html'
-        })
+    })
     .state('zblk', {
             url: '/zblk'
             , abstract: true
             , templateUrl: 'templates/blanklayout.html'
-        })
+    })
     .state('zblk.login', {
         url: '/login/'
         , templateUrl: 'templates/login/index.html'
@@ -51,24 +45,6 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
         , templateUrl: 'templates/dashboard/zqt-dashboard.html'
         , controller: 'DashboardCtrl'
     })
-
-    .state('srch.top-food', {
-        url: '/top-food/'
-        , templateUrl: 'templates/top-items/food.html'
-        , controller: 'TopFoodCtrl'
-    })
-
-    .state('srch.top-nightlf', {
-        url: '/top-nightlf/'
-        , templateUrl: 'templates/top-items/nightlf.html'
-        , controller: 'TopNightLfCtrl'
-    })
-
-    .state('srch.top-places', {
-        url: '/top-places/'
-        , templateUrl: 'templates/top-items/places.html'
-        , controller: 'TopPlacesCtrl'
-    })
     .state('srch.top-more', {
         url: '/top-more/'
         , templateUrl: 'templates/top-items/more.html'
@@ -78,6 +54,11 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
         url: '/top-more-search/'
         , templateUrl: 'templates/top-items/more-search.html'
         , controller: 'TopMoreSearchCtrl'
+    })
+    .state('srch.search', {
+        url: '/search/:keyword/'
+        , templateUrl: 'templates/search/search.html'
+        , controller: 'SearchCtrl'
     })
     .state('zqt.profile', {
         url: '/profile/'
@@ -93,7 +74,6 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
             }
         }
     })
-
     .state('zblk.addreview', {
         url: '/addreview/'
         , templateUrl: 'templates/addreview/index.html'
@@ -115,7 +95,7 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic.rating','ngCordova'
         , controller: 'ViewBusinessCtrl'
     })
 
-    $urlRouterProvider.otherwise('/zblk/login/');
+    $urlRouterProvider.otherwise('/zqt/dashboard/');
 });
 
 angular.module('zatiqctrl')

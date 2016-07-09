@@ -1,5 +1,5 @@
 angular.module('zatiqctrl.datafactory')
-.factory('nearbyfactory', function (gconfigfactory,$cordovaGeolocation,$ionicLoading) {
+.factory('nearbyfactory', function (gconfigfactory,$q,$cordovaGeolocation,$ionicLoading) {
         var result = [];
         var currentLat = 0;
         var currentLong = 0;
@@ -59,6 +59,53 @@ angular.module('zatiqctrl.datafactory')
                             //$ionicLoading.hide();
                         }
                     } 
+                },function(err) {
+                     //$ionicLoading.hide();
+                });
+                return this;
+            },
+            getNearbyTextSearch: function(text,limit) {
+                
+                var lat = 0;
+                var long = 0;
+                var currentLoc;
+                var map;
+                var posOptions = {timeout: 10000, enableHighAccuracy: false};
+                var currentLoc = $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+    
+                    lat = position.coords.latitude;
+                    long = position.coords.longitude;
+                    currentLoc = new google.maps.LatLng(lat, long);
+
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: currentLoc
+                        , zoom: 15
+                    });
+
+                    var request = {
+                        location: currentLoc
+                        , radius: '1000'
+                        , query: text
+                    };
+                        
+                    service = new google.maps.places.PlacesService(map);
+                    service.textSearch(request, callback);
+   
+                    function callback(results, status) {
+                        if (status == google.maps.places.PlacesServiceStatus.OK) {
+                            for (var i = 0; i < limit; i++) {
+                                var place = results[i];
+                                if(place == null || place == undefined) {break;}
+                                if(place.photos != undefined) {
+                                    place.photos[0]['imageUrl'] = place.photos[0].getUrl({maxWidth:80,maxHeight:80});
+                                }
+
+                                //  before push, check if the user already rated this place.
+                                result.push(place);
+                            }
+                            //$ionicLoading.hide();
+                        }
+                    }
                 },function(err) {
                      //$ionicLoading.hide();
                 });

@@ -1,0 +1,26 @@
+<ion-view class="has-footer">
+    <ion-content overflow-scroll="false">
+        <div class="item item-divider">{{keyword}}</div>
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="getBusinesses()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left" ng-repeat="bn in business" item="item" on-tap="viewbusiness(bn)">
+                <img src="{{bn.photos[0].imageUrl}}">
+                <h2>{{bn.name}}</h2>
+                <p>{{bn.vicinity}}</p>
+                <p>Rate: {{bn.rating}}</p>
+            </ion-item>
+<!--
+    <ion-infinite-scroll distance="2"
+                     on-infinite="nearByBusinesses()"
+                     ng-if="!moredata"
+                     ></ion-infinite-scroll>
+-->
+        </ion-list>
+        
+        
+        <div id="map" ng-hide="true"></div>
+    </ion-content>
+</ion-view>
