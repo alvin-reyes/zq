@@ -58,6 +58,7 @@ angular.module('zatiqctrl.controllers', [])
     
     //  Let's get all the businesses
     $scope.getBusinesses = function() {
+        $scope.business = [];
 //        $scope.business = nearbyfactory.resultContainer(new Array()).
 //        getNearbyTextSearch($scope.keywordlc,5).result();
         var lat = 0;
@@ -112,7 +113,6 @@ angular.module('zatiqctrl.controllers', [])
         $scope.$broadcast('scroll.refreshComplete');
     }
     
-        
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
         $state.go('zblk.viewbusiness');

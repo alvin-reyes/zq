@@ -106,27 +106,3 @@ angular.module('zatiqctrl', ['ionic','ionic-material','ionic-ratings','ngCordova
 
     $urlRouterProvider.otherwise('/zqt/dashboard/');
 });
-
-angular.module('zatiqctrl')
-.run(function($ionicPlatform,$rootScope,$ionicActionSheet) {
-
-    $rootScope.showActionSheet = function() {
-      var hideSheet = $ionicActionSheet.show({
-        buttons: [
-          { text: "A" },
-          { text: 'B' }
-        ],
-        destructiveText: 'Add Review',
-        cancelText: 'Cancel',
-        cancel: function() {
-        // add cancel code..
-        },
-        buttonClicked: function(index) {
-          return true;
-        }
-    });
-
-
-  };
-
-})

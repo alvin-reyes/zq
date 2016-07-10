@@ -1,6 +1,6 @@
 angular.module('zatiqctrl.controllers')
 
-.controller('ViewBusinessCtrl', function ($scope,$state, $ionicLoading, $cordovaGeolocation, $ionicScrollDelegate, selectedfactory) {
+.controller('ViewBusinessCtrl', function ($scope,$state, $ionicPopup,$ionicLoading, $cordovaGeolocation, $ionicScrollDelegate, selectedfactory) {
 
     $scope.$on("$ionicView.beforeEnter", function (event, data) {
         $ionicScrollDelegate.scrollTop();
@@ -91,4 +91,32 @@ angular.module('zatiqctrl.controllers')
             alert('Unable to get location: ' + error.message);
         });
     };
+    
+    $scope.hello = function() {
+        alert('asasa');
+    }
+    $scope.checkin = function() {
+        
+        var myPopup = $ionicPopup.show({
+            templateUrl: 'templates/checkin/index.html',
+            title: 'Enter Wi-Fi Password',
+            subTitle: 'Please use normal things',
+            scope: $scope,
+            buttons: [
+              { text: 'Cancel' },
+              {
+                text: '<b>Save</b>',
+                type: 'button-positive',
+                onTap: function(e) {
+                  if (!$scope.data.wifi) {
+                    //don't allow the user to close unless he enters wifi password
+                    e.preventDefault();
+                  } else {
+                    return $scope.data.wifi;
+                  }
+                }
+              }
+            ]
+        });
+    }
 });
