@@ -1,51 +1,6 @@
 angular.module('zatiqctrl.controllers', [])
-//.controller('TopFoodCtrl', function ($scope, $state, nearbyfactory, gconfigfactory, selectedfactory) {
-//    $scope.$on("$ionicView.beforeEnter", function(event, data){
-//        $scope.getBusinesses();
-//    });
-//    
-//    $scope.business = [];
-//    $scope.getBusinesses = function() {
-//        $scope.business = nearbyfactory
-//            .resultContainer(new Array()).getNearby(['restaurants','food'],10).result();
-//        $scope.$broadcast('scroll.refreshComplete');
-//    }
-//    $scope.viewbusiness = function(place) {
-//        selectedfactory.setSelectedBusiness(place);
-//        $state.go('zblk.viewbusiness');
-//    }
-//})
-//.controller('TopNightLfCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
-//    $scope.$on("$ionicView.beforeEnter", function(event, data){
-//        $scope.getBusinesses();
-//    });
-//    $scope.business;
-//    $scope.getBusinesses = function() {
-//        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['night_club','casino','bar'],10).result();
-//        $scope.$broadcast('scroll.refreshComplete');
-//    }
-//    $scope.viewbusiness = function(place) {
-//        selectedfactory.setSelectedBusiness(place);
-//        $state.go('zblk.viewbusiness');
-//    }
-//})
-//.controller('TopPlacesCtrl', function ($scope, $state,nearbyfactory,selectedfactory) {
-//    $scope.$on("$ionicView.beforeEnter", function(event, data){
-//        $scope.getBusinesses();
-//    });
-//    $scope.business;
-//    $scope.getBusinesses = function() {
-//        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(['premise','park','shopping_mall'],10).result();
-//        $scope.$broadcast('scroll.refreshComplete');
-//    }
-//    $scope.viewbusiness = function(place) {
-//        selectedfactory.setSelectedBusiness(place);
-//        $state.go('zblk.viewbusiness');
-//    }
-//})
-
 .controller('SearchCtrl',function($scope,$stateParams,$timeout,$state,$cordovaGeolocation,businessfactory,nearbyfactory,selectedfactory){
-    
+
     //  Page events.
     $scope.$on('$ionicView.loaded', function(){
         $scope.getBusinesses();
@@ -59,8 +14,7 @@ angular.module('zatiqctrl.controllers', [])
     //  Let's get all the businesses
     $scope.getBusinesses = function() {
         $scope.business = [];
-//        $scope.business = nearbyfactory.resultContainer(new Array()).
-//        getNearbyTextSearch($scope.keywordlc,5).result();
+
         var lat = 0;
         var long = 0;
         var currentLoc;
