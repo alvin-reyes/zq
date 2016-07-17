@@ -29,7 +29,7 @@ angular.module('zatiqctrl.controllers', [])
 
             map = new google.maps.Map(document.getElementById('map'), {
                 center: currentLoc
-                , zoom: 15
+                , zoom: 20
             });
 
             var request = {
@@ -110,7 +110,7 @@ angular.module('zatiqctrl.controllers', [])
     $scope.category;
     $scope.getBusinesses = function() {
         $scope.category = selectedfactory.getSelectedCategory();
-        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(selectedfactory.getSelectedCategory().meta_code,10).result();
+        $scope.business = nearbyfactory.resultContainer(new Array()).getNearby(selectedfactory.getSelectedCategory().meta_code,5).result();
         $scope.$broadcast('scroll.refreshComplete');
     }
     $scope.viewbusiness = function(place) {
