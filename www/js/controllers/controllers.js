@@ -22,6 +22,5 @@ angular.module('zatiqctrl.controllers', [])
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
         $state.go('zblk.viewbusiness');
-        //$location.path('/zblk/viewbusiness/');
     }
 })
