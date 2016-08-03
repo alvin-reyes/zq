@@ -1,5 +1,5 @@
 angular.module('zatiqctrl.datafactory')
-.factory('nearbyfactory', function (gconfigfactory,$q,$cordovaGeolocation,$ionicLoading) {
+.factory('nearbyfactory', function (gconfigfactory,$q,$http,$cordovaGeolocation,$ionicLoading) {
         var result = [];
         var currentLat = 0;
         var currentLong = 0;
@@ -99,7 +99,8 @@ angular.module('zatiqctrl.datafactory')
                                 if(place.photos != undefined) {
                                     place.photos[0]['imageUrl'] = place.photos[0].getUrl({maxWidth:80,maxHeight:80});
                                 }
-
+                                
+                                //  Call a service that will save the places, keep the promise though.
                                 //  before push, check if the user already rated this place.
                                 result.push(place);
                             }

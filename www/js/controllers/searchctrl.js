@@ -1,5 +1,5 @@
 angular.module('zatiqctrl.controllers')
-.controller('SearchCtrl',function($scope,$stateParams,$timeout,$state,$cordovaGeolocation,businessfactory,nearbyfactory,selectedfactory){
+.controller('SearchCtrl',function($scope,$stateParams,$timeout,$http,$state,$cordovaGeolocation,businessfactory,nearbyfactory,selectedfactory,gconfigfactory){
 
     //  Page events.
     $scope.$on('$ionicView.loaded', function(){
@@ -52,6 +52,12 @@ angular.module('zatiqctrl.controllers')
 
                         //  before push, check if the user already rated this place.
                         $scope.$apply(function() {
+                            $http.post(gconfigfactory.getUrl('DEV') + 'business/add/', place).
+                            then(
+                                function(response) {
+                                    console.log("Error");
+                                }
+                            );
                             $scope.business.push(place);
                         });
                         

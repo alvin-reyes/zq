@@ -6,11 +6,14 @@ angular.module('zatiqctrl.controllers')
     $scope.showActionSheet1 = function() {
         var hideSheet = $ionicActionSheet.show({
      buttons: [
-       { text: 'Btn1- Like This' },
-       { text: 'Btn2- Comment' }
+       { text: 'Add Review' },
+       { text: 'Add Rating' },
+       { text: 'Check In' }
      ],
-     destructiveText: 'Delete',
-     titleText: 'Edit Profile',
+//     destructiveText: 'Close',
+//     destructiveButtonClicked: function() {
+//        
+//     },
      cancelText: 'Cancel',
      cancel: function() {
           // add cancel code..
