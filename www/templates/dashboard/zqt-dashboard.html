@@ -1,7 +1,8 @@
 <ion-view class="has-footer" ng-init="getBusinesses()">
     <ion-content overflow-scroll="false">
-      
-     <div class="list card" class="item item-thumbnail-left" ng-repeat="bn in dashboarditems" item="item" on-tap="viewbusiness(bn)">
+
+         <ion-list>
+             <ion-item class="list card" ng-repeat="bn in dashboarditems" item="item" on-tap="viewbusiness(bn)">
       <div class="item item-avatar">
         <img src="">
         <h2>{{bn.name}}</h2>
@@ -13,8 +14,21 @@
         <p>
         </p>
       </div>
+             </ion-item>
+         </ion-list>
+        
+           <ion-list>
 
-    </div>
+      </ion-list>
+
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+        
+        
+            <ion-infinite-scroll distance="2"
+                     on-infinite="nearByBusinesses()"
+                     ng-if="!moredata"
+                     ></ion-infinite-scroll>
+
       <div id="map" ng-hide=true></div>
       
               <ion-refresher
