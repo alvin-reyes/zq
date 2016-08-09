@@ -19,7 +19,7 @@ angular.module('zatiqctrl.controllers')
         var long = 0;
         var currentLoc;
         var map;
-        var limit = 5;
+        var limit = 10;
         var posOptions = {timeout: 3000, enableHighAccuracy: false};
         var currentLoc = $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
 
@@ -69,7 +69,7 @@ angular.module('zatiqctrl.controllers')
              //$ionicLoading.hide();
             console.log(err);
         });
-        
+        $scope.$broadcast('scroll.infiniteScrollComplete');
         $scope.$broadcast('scroll.refreshComplete');
     }
     

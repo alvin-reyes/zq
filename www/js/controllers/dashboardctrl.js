@@ -2,14 +2,14 @@ angular.module('zatiqctrl.controllers')
 .controller('DashboardCtrl', function($scope,$state,$ionicActionSheet,$cordovaGeolocation,selectedfactory,nearbyfactory) {
     
     $scope.dashboarditems;
-      $scope.noMoreItemsAvailable = false;
+    $scope.noMoreItemsAvailable = false;
     $scope.getBusinesses = function() {
         $scope.dashboarditems = [];
         var lat = 0;
         var long = 0;
         var currentLoc;
         var map;
-        var limit = 50;
+        var limit = 10;
         var posOptions = {timeout: 3000, enableHighAccuracy: false};
         var currentLoc = $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
 
@@ -60,6 +60,10 @@ angular.module('zatiqctrl.controllers')
         });
         $scope.$broadcast('scroll.infiniteScrollComplete');
         $scope.$broadcast('scroll.refreshComplete');
+        
+        if ($scope.items.length == 10) {
+            $scope.noMoreItemsAvailable = true;
+        }
     }
     $scope.viewbusiness = function(place) {
         selectedfactory.setSelectedBusiness(place);
@@ -72,17 +76,5 @@ angular.module('zatiqctrl.controllers')
     $scope.ads = function() {
         
     }
-    
-    
-  $scope.loadMore = function() {
-    $scope.items.push({ id: $scope.items.length});
-   
-    if ( $scope.items.length == 99 ) {
-      $scope.noMoreItemsAvailable = true;
-    }
-    $scope.$broadcast('scroll.infiniteScrollComplete');
-  };
-  
-  $scope.items = [];
     
 });

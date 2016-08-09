@@ -4,24 +4,25 @@
     <ion-content overflow-scroll="false">
         
         <div class="item item-divider">{{keyword}}</div>
+        
         <ion-list>
-            <ion-item class="item item-thumbnail-left" ng-repeat="bn in business" item="item" on-tap="viewbusiness(bn)">
-                <img src="{{bn.photos[0].imageUrl}}">
+             <ion-item class="list card" ng-repeat="bn in business" item="item" on-tap="viewbusiness(bn)">
+              <div class="item item-avatar">
+                <img src="">
                 <h2>{{bn.name}}</h2>
                 <p>{{bn.vicinity}}</p>
-                <p>Rate: {{bn.rating}}</p>
-            </ion-item>
+              </div>
 
-            
-
-<!--
-    <ion-infinite-scroll distance="2"
-                     on-infinite="nearByBusinesses()"
-                     ng-if="!moredata"
-                     ></ion-infinite-scroll>
--->
-        </ion-list>
-             
+              <div class="item item-body">
+                <img class="full-image" src="{{bn.photos[0].imageUrl}}">
+                <p>
+                </p>
+              </div>
+             </ion-item>
+         </ion-list>
+        
+       <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="getBusinesses()" distance="10%"></ion-infinite-scroll>
+        
         <ion-refresher
             pulling-text="Pull to refresh..."
             on-refresh="getBusinesses()">

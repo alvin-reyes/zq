@@ -17,17 +17,8 @@
              </ion-item>
          </ion-list>
         
-           <ion-list>
-
-      </ion-list>
-
-      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
-        
-        
-            <ion-infinite-scroll distance="2"
-                     on-infinite="nearByBusinesses()"
-                     ng-if="!moredata"
-                     ></ion-infinite-scroll>
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="getBusinesses()" distance="10%"></ion-infinite-scroll>
+    
 
       <div id="map" ng-hide=true></div>
       
